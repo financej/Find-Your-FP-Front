@@ -3,7 +3,7 @@ import { useConfirmModalStore } from "@/store"
 import { Button } from "@mui/material"
 
 
-export default function ConfirmModal({ title = "알림", handleCheck, handleCancel, message, isAlert, idx }) {
+export default function ConfirmModal({ title = "알림", handleCheck, handleCancel, message, isAlert, id }) {
 
     const [ isOpen, setIsOpen ] = useState(true)
     const closeConfirmModal = useConfirmModalStore(state => state.closeConfirmModal)
@@ -13,9 +13,11 @@ export default function ConfirmModal({ title = "알림", handleCheck, handleCanc
     }, [])
 
     const handleFuncAddCloseFunc = (handleFunc) => {
-        closeConfirmModal(idx)
-        setIsOpen(false)
-        setTimeout(() => handleFunc(), 200)
+      setIsOpen(false)
+      setTimeout(() => {
+        handleFunc()
+        closeConfirmModal(id)
+      }, 200)
     }
   
     return (

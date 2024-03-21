@@ -7,7 +7,7 @@ export default function ModalContainer() {
       
     return (
       <>
-        { confirmModalPropsList.map((props, idx) => <ConfirmModal key={ idx } idx={ idx } { ...props } /> ) }
+        { confirmModalPropsList.map((props) => <ConfirmModal key={ props.id } { ...props } /> ) }
       </>
     )
   }
