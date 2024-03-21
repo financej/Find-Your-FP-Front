@@ -2,6 +2,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Layout } from "./components";
 import { Home, LoginPage, ProtectedPage } from "./screens";
 import { ProtectedRoute } from "./router";
+import { ThemeProvider } from "@mui/material";
+import { theme } from "./style/theme";
 
 //fixme 가시성 개선?
 const router = createBrowserRouter([
@@ -11,31 +13,33 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />
+        element: <Home />,
       },
       {
         path: "/login",
-        element: <LoginPage />
+        element: <LoginPage />,
       },
       {
         element: <ProtectedRoute />,
         children: [
           {
             path: "test",
-            element: <ProtectedPage />
-          }
-        ]
+            element: <ProtectedPage />,
+          },
+        ],
       },
-    ]
+    ],
   },
 ]);
 
 function App() {
   return (
-    <div className='w-full bg-neutral-50 overflow-auto'>
-       <RouterProvider router={router} />
+    <div className="w-full overflow-auto bg-neutral-50">
+      <ThemeProvider theme={theme}>
+        <RouterProvider router={router} />
+      </ThemeProvider>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
