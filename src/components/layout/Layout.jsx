@@ -2,7 +2,7 @@ import { Header } from "./header";
 import { ModalContainer } from "../ui";
 import { Outlet } from "react-router-dom";
 import { SideBar } from "./sidebar";
-import AIFloatingButton from "../chat/AIFloatingButton";
+import AIFloatingButton from "../chatbot/AIFloatingButton";
 
 const Layout = ({ children }) => {
   return (

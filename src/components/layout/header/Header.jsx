@@ -6,7 +6,7 @@ import {MetlifeIcon} from "../../ui";
 const Header = () => {
   return (
     <header className="sticky top-0 z-10 bg-white border-b">
-      <div className="flex items-center justify-between px-5 py-2 mx-auto">
+      <div className="flex items-center justify-between px-5 py-2">
         <Link
           to="/"
           aria-label="메인 화면 바로가기"
