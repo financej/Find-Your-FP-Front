@@ -2,6 +2,7 @@ import { Header } from "./header";
 import { ModalContainer } from "../ui";
 import { Outlet } from "react-router-dom";
 import { SideBar } from "./sidebar";
+import AIFloatingButton from "../chat/AIFloatingButton";
 
 const Layout = ({ children }) => {
   return (
@@ -14,6 +15,7 @@ const Layout = ({ children }) => {
         <main className="flex flex-col w-full gap-6 p-10 mx-auto basis-10/12">
           {children || <Outlet />}
           <ModalContainer />
+          <AIFloatingButton />
         </main>
       </main>
     </>
