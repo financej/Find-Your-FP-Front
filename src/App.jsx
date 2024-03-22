@@ -22,7 +22,7 @@ const router = createBrowserRouter([
         element: <LoginPage />,
       },
       {
-        path: "/auth",
+        path: "/api/auth",
         element: <AuthPage />,
       },
       {
