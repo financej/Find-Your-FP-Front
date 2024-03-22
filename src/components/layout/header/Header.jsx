@@ -1,6 +1,7 @@
-import { MetlifeIcon } from "@/ui/icons";
+
 import { Link } from "react-router-dom";
 import NavigationBar from "./nav/NavigationBar";
+import {MetlifeIcon} from "../../ui";
 
 const Header = () => {
   return (
