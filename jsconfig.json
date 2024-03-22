@@ -1,11 +1,12 @@
 {
-    "compilerOptions": {
-      "paths": {
-        "@/components": ["./src/components"],
-        "@/ui": ["./src/components/ui"],
-        "@/store": ["./src/store"],
-        "@/utils": ["./src/utils"],
-      }
-    },
-    "include": ["src"],
-  }
+  "compilerOptions": {
+    "paths": {
+      "@/components": ["./src/components"],
+      "@/ui": ["./src/components/ui"],
+      "@/store": ["./src/store"],
+      "@/utils": ["./src/utils"],
+      "@/api": ["./src/api"]
+    }
+  },
+  "include": ["src"]
+}
