@@ -7,11 +7,12 @@ function DefaultPaper({
   flexDirection = "column",
   justifyContent,
   alignItems,
+  elevation,
   children,
 }) {
   return (
     <Paper
-      elevation={3}
+      elevation={elevation ? elevation : 3}
       sx={{
         width: width ? width : "100%",
         height: height ? height : "200px",
