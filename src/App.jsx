@@ -1,10 +1,11 @@
+import { ThemeProvider } from "@mui/material";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Layout } from "./components";
-import { Home, LoginPage, ProtectedPage } from "./screens";
 import { ProtectedRoute } from "./router";
-import { ThemeProvider } from "@mui/material";
-import { theme } from "./style/theme";
+import { Home, LoginPage, ProtectedPage } from "./screens";
 import AuthPage from "./screens/unprotected/auth/AuthPage";
+import { theme } from "./style/theme";
 
 //fixme 가시성 개선?
 const router = createBrowserRouter([
@@ -37,12 +38,24 @@ const router = createBrowserRouter([
   },
 ]);
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 60 * 1000,
+      gcTime: 60 * 1000,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
+
 function App() {
   return (
     <div className="w-full overflow-auto bg-neutral-50">
-      <ThemeProvider theme={theme}>
-        <RouterProvider router={router} />
-      </ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider theme={theme}>
+          <RouterProvider router={router} />
+        </ThemeProvider>
+      </QueryClientProvider>
     </div>
   );
 }

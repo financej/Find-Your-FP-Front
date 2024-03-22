@@ -6,5 +6,5 @@ export const loginApi = async (code) => {
     redirectUri: import.meta.env.VITE_REDIRECT_URL,
   });
 
-  return response;
+  return response.data;
 };
