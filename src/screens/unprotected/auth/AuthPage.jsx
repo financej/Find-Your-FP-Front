@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { loginApi } from "@/api/login";
 import { useAuthStore } from "@/store/auth";
+import { loginApi } from "../../../api/login";
 
 function AuthPage() {
   const code = new URL(window.location.href).searchParams.get("code");
@@ -11,8 +11,8 @@ function AuthPage() {
   const getAccessToken = async () => {
     try {
       const res = await loginApi(code);
-      localStorage.setItem("accessToken", res.accessToken);
-      localStorage.setItem("userName", res.userName);
+      localStorage.setItem("accessToken", JSON.stringify(res.accessToken));
+      localStorage.setItem("userName", JSON.stringify(res.userName));
 
       login();
       console.log(token);
