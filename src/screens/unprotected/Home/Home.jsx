@@ -2,6 +2,7 @@ import KeyboardArrowRightOutlinedIcon from "@mui/icons-material/KeyboardArrowRig
 import { Box, Stack, Typography, useTheme } from "@mui/material";
 import { DefaultPaper } from "../../../components/ui/paper";
 import Chart from "./components/Chart";
+import CardComponent from "../../../components/ui/card/CardComponent";
 
 const Home = () => {
   const theme = useTheme();
@@ -62,8 +63,67 @@ const Home = () => {
           <Chart />
         </DefaultPaper>
       </Stack>
+
+      <Typography variant="h5" sx={{ width: "100%" }}>
+        메트님, 이런 상품은 어때요?
+      </Typography>
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 3,
+          maxWidth: "100%",
+        }}
+      >
+        {_mock.map((item, idx) => {
+          return <CardComponent data={item} />;
+        })}
+      </Box>
     </>
   );
 };
 
 export default Home;
+
+const _mock = [
+  {
+    title: "AA 보험",
+    category: "실비 보장 보험",
+    contents: "가장 많이 보장되는 실비 보험",
+  },
+  {
+    title: "BB 보험",
+    category: "암 보장 보험",
+    contents: "가장 많이 보장되는 암 보험",
+  },
+  {
+    title: "CC 보험",
+    category: "상해 보장 보험",
+    contents: "가장 많이 보장되는 상해 보험",
+  },
+  {
+    title: "DD 보험",
+    category: "상해 보장 보험",
+    contents: "가장 많이 보장되는 상해 보험",
+  },
+  {
+    title: "AA 보험",
+    category: "실비 보장 보험",
+    contents: "가장 많이 보장되는 실비 보험",
+  },
+  {
+    title: "BB 보험",
+    category: "암 보장 보험",
+    contents: "가장 많이 보장되는 암 보험",
+  },
+  {
+    title: "CC 보험",
+    category: "상해 보장 보험",
+    contents: "가장 많이 보장되는 상해 보험",
+  },
+  {
+    title: "DD 보험",
+    category: "상해 보장 보험",
+    contents: "가장 많이 보장되는 상해 보험",
+  },
+];

@@ -28,7 +28,7 @@ const SideBar = () => {
         width: "100%",
         minWidth: 270,
         maxWidth: 360,
-        height: "100vh",
+        height: "100%",
         bgcolor: "background.paper",
       }}
       component="nav"
