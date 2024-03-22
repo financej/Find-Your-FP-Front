@@ -37,8 +37,8 @@ export default function Chatbox() {
                             ),
                         }}
                     />
-                    <IconButton backgroundColor="#A2CD4C">
-                        <SendIcon />
+                    <IconButton >
+                        <SendIcon backgroundColor="#A2CD4C"/>
                     </IconButton>
                 </div>
             </div>

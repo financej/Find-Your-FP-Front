@@ -1,5 +1,6 @@
 import { useLayoutEffect, useState } from "react"
 import { useConfirmModalStore } from "@/store"
+import { convertNewLinesToBreaks } from "@/utils"
 import { Button } from "@mui/material"
 
 
@@ -29,7 +30,10 @@ export default function ConfirmModal({ title = "알림", handleCheck, handleCanc
             }
             {
                 message &&
-                <div className="flex justify-center items-center text-center my-3 text[1.2rem] p-3 "> { message } </div>
+                <div 
+                  className="flex flex-col justify-center items-center text-center my-3 text[1.2rem] p-3 "
+                  dangerouslySetInnerHTML={{ __html: convertNewLinesToBreaks(message) }}
+                />
             }
           <div className="flex w-full justify-center items-center text-center py-2">
             { 

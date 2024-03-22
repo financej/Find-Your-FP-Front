@@ -1,30 +1,38 @@
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuthStore } from "@/store/auth";
+import { useAuthStore, useConfirmModalStore } from "@/store";
 import { loginApi } from "../../../api/login";
 
 function AuthPage() {
   const code = new URL(window.location.href).searchParams.get("code");
   const navigate = useNavigate();
-  const { login, token } = useAuthStore();
+  const { login } = useAuthStore();
+  const { openConfirmModal } = useConfirmModalStore();
 
   const getAccessToken = async () => {
     try {
       const res = await loginApi(code);
-      localStorage.setItem("accessToken", JSON.stringify(res.accessToken));
-      localStorage.setItem("userName", JSON.stringify(res.userName));
 
-      login();
-      console.log(token);
+      const accessToken = JSON.stringify(res.accessToken)
+      const userName = JSON.stringify(res.userName)
+
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("userName", userName);
+
+      login(accessToken, userName);
+
       navigate("/");
     } catch (error) {
-      throw new Error("로그인 시도 중 에러가 발생했습니다." + error);
+      openConfirmModal({message: '로그인 중 문제가 발생했습니다.\n다시 로그인 해주세요.'}).then(check => check && navigate('/'))
     }
   };
 
-  useEffect(() => {
-    getAccessToken();
-  }, []);
+  useLayoutEffect(() => {
+    const getUser = async () => {
+      await getAccessToken();
+    }
+    getUser()
+  }, [])
 
   return <></>;
 }
