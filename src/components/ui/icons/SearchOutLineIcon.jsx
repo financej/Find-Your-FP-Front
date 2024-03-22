@@ -1,4 +1,3 @@
-import React from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 
 export default function SearchOutLineIcon()  {
