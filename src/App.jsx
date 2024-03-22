@@ -4,6 +4,7 @@ import { Home, LoginPage, ProtectedPage } from "./screens";
 import { ProtectedRoute } from "./router";
 import { ThemeProvider } from "@mui/material";
 import { theme } from "./style/theme";
+import AuthPage from "./screens/unprotected/auth/AuthPage";
 
 //fixme 가시성 개선?
 const router = createBrowserRouter([
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <LoginPage />,
+      },
+      {
+        path: "/auth",
+        element: <AuthPage />,
       },
       {
         element: <ProtectedRoute />,
