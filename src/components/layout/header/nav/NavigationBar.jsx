@@ -47,7 +47,7 @@ const NavigationBar = () => {
           );
         })}
         <div>
-          {isLogin ? (
+          {!isLogin ? (
             <>
               <Button
                 variant="outlined"
