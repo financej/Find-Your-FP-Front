@@ -1,11 +1,10 @@
-
 import { Link } from "react-router-dom";
 import NavigationBar from "./nav/NavigationBar";
-import {MetlifeIcon} from "../../ui";
+import { MetlifeIcon } from "../../ui";
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-10 bg-white border-b">
+    <header className="sticky top-0 z-10 bg-white border-b h-16">
       <div className="flex items-center justify-between px-5 py-2">
         <Link
           to="/"
