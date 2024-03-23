@@ -14,6 +14,17 @@ steps:
   inputs:
     versionSpec: '20.x'
   displayName: 'Install Node.js'
+- task: AzureStaticWebApp@0
+  inputs:
+    app_location: '/'
+    api_location: '/'
+    output_location: 'dist' # Built app content directory relative to app_location - optional
+    cwd: '$(System.DefaultWorkingDirectory)/metlife-team09-frontend' # Working directory - optional
+    azure_static_web_apps_api_token: 1453d4a6904acc2a6ffbf57a54f956973d1681168101fad047cad0752a8ccad25-22149691-8396-4a5c-9d02-f598ce7d4326000142130
+  # env:
+    # VITE_API=http://localhost:8080/api/auth/
+    # VITE_KAKAO_API=57af93f1597e793699fde66442b691f3
+    # VITE_REDIRECT_URL=http://localhost:5173/api/auth
 
 - script: |
     npm install
