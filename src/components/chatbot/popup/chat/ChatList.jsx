@@ -60,8 +60,6 @@ export default function ChatList() {
                         memberInfo && chatData.map((chat, idx) => {
                             const { message, memberId } = chat
 
-                            console.log(memberId)
-                            console.log(memberInfo.memberId)
                             return (
                             <li key={`${chat.sender}_${idx}`} className="px-3 mt-2" >
                                 {
