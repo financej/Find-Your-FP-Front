@@ -60,6 +60,11 @@ const NavigationBar = () => {
   return (
     <nav className="">
       <ul className="flex items-center gap-4 md:gap-7">
+        {isLogin && (
+            <StyledDiv>
+              <SearchBar/>
+            </StyledDiv>
+        )}
         <StyledDiv>
           <CustomTypography onClick={() => navigate('/search')}>
             보험설계사 찾기
@@ -83,16 +88,7 @@ const NavigationBar = () => {
           </CustomTypography>
           <ExpandLess />
         </StyledDiv>
-        {isLogin && (
-            <Box
-                sx={{
-                  width: 800,
-                  paddingX: "80px",
-                }}
-            >
-              <SearchBar/>
-            </Box>
-        )}
+
         <div>
           {!isLogin ? (
               <>
