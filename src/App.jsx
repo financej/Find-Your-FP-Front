@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Layout } from "./components";
 import { ProtectedRoute } from "./router";
-import { Home, LoginPage, ProtectedPage } from "./screens";
+import { Home, LoginPage, SummaryPage } from "./screens";
 import AuthPage from "./screens/unprotected/auth/AuthPage";
 import Form from "./screens/unprotected/form/Form";
 import { theme } from "./style/theme";
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <HomePage />,
+        element: <Home />,
       },
       {
         path: "/login",
@@ -37,12 +37,13 @@ const router = createBrowserRouter([
         element: <ChatPage />,
       },
       {
+        path: "/summary",
+        element: <SummaryPage />,
+      },
+      {
         element: <ProtectedRoute />,
         children: [
-          {
-            path: "test",
-            element: <ProtectedPage />,
-          },
+    
         ],
       },
     ],
