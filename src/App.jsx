@@ -8,6 +8,7 @@ import AuthPage from "./screens/unprotected/auth/AuthPage";
 import Form from "./screens/unprotected/form/Form";
 import { theme } from "./style/theme";
 import ChatPage from "./screens/protected/chat/ChatPage";
+import ChatRoom from "./screens/protected/chat/ChatTempPage";
 import HomePage from "./screens/unprotected/Home/HomePage";
 import PlannerPage from "./screens/protected/planner/PlannerPage";
 import SearchPage from "./screens/protected/search/SearchPage";
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/chat/:plannerId",
-        element: <ChatPage />,
+        element: <ChatRoom />,
       },
       {
         element: <ProtectedRoute />,
