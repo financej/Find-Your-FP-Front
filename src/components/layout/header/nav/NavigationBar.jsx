@@ -14,6 +14,7 @@ import {
 // import { Link } from "react-router-dom";
 import SearchBar from "../../searchBar/SearchBar";
 import {useNavigate} from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const CustomTypography = styled(Typography)(({ theme }) => ({
   display: 'flex',
@@ -42,7 +43,7 @@ const NavigationBar = () => {
   const { isLogin, logout, userName } = useAuthStore();
   const theme = useTheme();
   const navigate = useNavigate();
-
+  const { pathname } = useLocation()
   // const handleLogin = () => {
   //   console.log("emf");
   //   openConfirmModal({ message: "되니?" }).then(
@@ -60,10 +61,15 @@ const NavigationBar = () => {
   return (
     <nav className="">
       <ul className="flex items-center gap-4 md:gap-7">
-        {isLogin && (
-            <StyledDiv>
-              <SearchBar/>
-            </StyledDiv>
+        {pathname === "/search" && (
+          <Box
+            sx={{
+              width: 800,
+              paddingX: "80px",
+            }}
+          >
+            <SearchBar />
+          </Box>
         )}
         <StyledDiv>
           <CustomTypography onClick={() => navigate('/searchMain')}>
@@ -103,20 +109,20 @@ const NavigationBar = () => {
                 </Button>
               </>
           ) : (
-              <Stack direction="row" spacing={1}>
-                <Avatar sx={{bgcolor: theme.palette.primary.main}}>
-                  {userName?.substring(0, 1)}
-                </Avatar>
-                <Button
-                    variant="outlined"
-                    onClick={handleKaKaoLogout}
-                    sx={{
-                      borderRadius: "50px",
-                    }}
-                >
-                  <Typography variant="body1">로그아웃</Typography>
-                </Button>
-              </Stack>
+            <Stack direction="row" spacing={1}>
+              {/* <Avatar sx={{ bgcolor: theme.palette.primary.main }}>
+                {userName?.substring(0, 1) ?? ""}
+              </Avatar> */}
+              <Button
+                variant="outlined"
+                onClick={handleKaKaoLogout}
+                sx={{
+                  borderRadius: "50px",
+                }}
+              >
+                <Typography variant="body1">로그아웃</Typography>
+              </Button>
+            </Stack>
           )}
         </div>
       </ul>

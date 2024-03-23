@@ -7,9 +7,11 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
-function CardComponent({ data: { title, category, contents } }) {
+function CardComponent({ data: { id, plannerName, address } }) {
   const theme = useTheme();
+  const navigate = useNavigate();
   return (
     <Paper
       elevation={0}
@@ -24,10 +26,10 @@ function CardComponent({ data: { title, category, contents } }) {
       }}
     >
       <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-        <Typography variant="h5">{title}</Typography>
+        <Typography variant="h5">{plannerName} 플래너님</Typography>
         <Box>
           <Chip
-            label={category}
+            label={address}
             variant="outlined"
             sx={{
               bgcolor: theme.palette.secondary.main,
@@ -44,13 +46,21 @@ function CardComponent({ data: { title, category, contents } }) {
             height: "128px",
             borderRadius: "10px",
             bgcolor: "#e5e4e4",
+            color: "white",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            fontSize: "36px",
+            textAlign: "center",
           }}
-        />
+        >
+          {plannerName?.substring(0, 1)}
+        </Box>
       </Stack>
-      <Typography variant="body1" sx={{ p: 2 }}>
-        {contents}
-      </Typography>
-      <Button variant="outlined">바로 상담받기</Button>
+
+      <Button variant="outlined" onClick={() => navigate(`/chat/${id}`)}>
+        바로 상담받기
+      </Button>
     </Paper>
   );
 }
