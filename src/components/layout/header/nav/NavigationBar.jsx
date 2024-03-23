@@ -73,7 +73,7 @@ const NavigationBar = () => {
         ) : (
           <>
             <StyledDiv>
-              <CustomTypography onClick={() => navigate("/searchMain")}>
+              <CustomTypography onClick={() => navigate("/search")}>
                 보험설계사 찾기
               </CustomTypography>
             </StyledDiv>

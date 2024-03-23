@@ -4,6 +4,7 @@ import MainImageDown from "../../../../public/asset/mainimg2.svg";
 import MainImageLeft from "../../../../public/asset/mainimg3.svg";
 import { styled } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
+import {KAKAO_URL} from "@/components/layout/header/nav/NavigationBar.jsx";
 
 const CustomTypography = styled(Typography)(({ theme }) => ({
   display: "flex",
@@ -62,6 +63,10 @@ const RightImage = styled("img")({
 export default function HomePage() {
   const navigate = useNavigate();
 
+    const handleKaKaoLogin = () => {
+        window.location.href = KAKAO_URL;
+    };
+
   return (
     <Box
       sx={{
@@ -91,7 +96,7 @@ export default function HomePage() {
         <CustomTypographyExample>
           행복한 내일은 행복한 오늘이 모여 만들어지기에 오늘부터, 메트라이프
         </CustomTypographyExample>
-        <CustomButton onClick={() => navigate("/login")}>
+        <CustomButton onClick={handleKaKaoLogin}>
           내 주위 보험설계사 찾기
         </CustomButton>
       </RightDiv>
