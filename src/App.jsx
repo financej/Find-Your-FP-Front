@@ -6,6 +6,7 @@ import { ProtectedRoute } from "./router";
 import { Home, LoginPage, ProtectedPage } from "./screens";
 import AuthPage from "./screens/unprotected/auth/AuthPage";
 import { theme } from "./style/theme";
+import Form from "./screens/unprotected/form/Form";
 
 //fixme 가시성 개선?
 const router = createBrowserRouter([
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/api/auth",
         element: <AuthPage />,
+      },
+      {
+        path: "/form",
+        element: <Form />,
       },
       {
         element: <ProtectedRoute />,
