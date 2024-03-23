@@ -44,7 +44,7 @@ const router = createBrowserRouter([
         element: <PlannerPage />,
       },
       {
-        path: "/chat/:plannerId",
+        path: "/chat/:roomId",
         element: <ChatRoom />,
       },
       {
