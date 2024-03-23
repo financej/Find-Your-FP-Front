@@ -5,8 +5,10 @@ import { Layout } from "./components";
 import { ProtectedRoute } from "./router";
 import { Home, LoginPage, ProtectedPage } from "./screens";
 import AuthPage from "./screens/unprotected/auth/AuthPage";
-import { theme } from "./style/theme";
 import Form from "./screens/unprotected/form/Form";
+import { theme } from "./style/theme";
+import ChatPage from "./screens/protected/chat/ChatPage";
+import HomePage from "./screens/unprotected/Home/HomePage";
 
 //fixme 가시성 개선?
 const router = createBrowserRouter([
@@ -16,7 +18,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: <HomePage />,
       },
       {
         path: "/login",
@@ -29,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/form",
         element: <Form />,
+      },
+      {
+        path: "/chat",
+        element: <ChatPage />,
       },
       {
         element: <ProtectedRoute />,

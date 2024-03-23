@@ -76,7 +76,7 @@ const Home = () => {
         }}
       >
         {_mock.map((item, idx) => {
-          return <CardComponent data={item} />;
+          return <CardComponent data={item} key={idx} />;
         })}
       </Box>
     </>
