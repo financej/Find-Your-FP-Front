@@ -9,6 +9,14 @@
 
 - json-server
 
+# 프로젝트 개발모드 실행
+
+- ( [pnpm 패키지 매니저 다운로드](https://pnpm.io/ko/installation) )
+
+- pnpm install
+- pnpm dev 
+
+
 ## Extension
 
 - ( [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) )
