@@ -72,9 +72,9 @@ const NavigationBar = () => {
             </>
           ) : (
             <Stack direction="row" spacing={1}>
-              <Avatar sx={{ bgcolor: theme.palette.primary.main }}>
-                {userName?.substring(0, 1)}
-              </Avatar>
+              {/* <Avatar sx={{ bgcolor: theme.palette.primary.main }}>
+                {userName?.substring(0, 1) ?? ""}
+              </Avatar> */}
               <Button
                 variant="outlined"
                 onClick={handleKaKaoLogout}
