@@ -8,10 +8,15 @@ import {
   useTheme,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { getRoomId } from "../../../api/room";
 
 function CardComponent({ data: { id, plannerName, address } }) {
   const theme = useTheme();
   const navigate = useNavigate();
+  const handleGo = async () => {
+    const res = await getRoomId();
+    navigate(`/chat/${Number(res.roomId)}`);
+  };
   return (
     <Paper
       elevation={0}
@@ -58,7 +63,7 @@ function CardComponent({ data: { id, plannerName, address } }) {
         </Box>
       </Stack>
 
-      <Button variant="outlined" onClick={() => navigate(`/chat/${id}`)}>
+      <Button variant="outlined" onClick={handleGo}>
         바로 상담받기
       </Button>
     </Paper>
