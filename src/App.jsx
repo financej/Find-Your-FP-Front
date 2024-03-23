@@ -9,6 +9,8 @@ import Form from "./screens/unprotected/form/Form";
 import { theme } from "./style/theme";
 import ChatPage from "./screens/protected/chat/ChatPage";
 import HomePage from "./screens/unprotected/Home/HomePage";
+import PlannerPage from "./screens/protected/planner/PlannerPage";
+import SearchPage from "./screens/protected/search/SearchPage";
 
 //fixme 가시성 개선?
 const router = createBrowserRouter([
@@ -33,7 +35,15 @@ const router = createBrowserRouter([
         element: <Form />,
       },
       {
-        path: "/chat",
+        path: "/search",
+        element: <SearchPage />,
+      },
+      {
+        path: "/planner",
+        element: <PlannerPage />,
+      },
+      {
+        path: "/chat/:plannerId",
         element: <ChatPage />,
       },
       {

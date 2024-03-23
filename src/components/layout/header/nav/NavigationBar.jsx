@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import SearchBar from "../../searchBar/SearchBar";
+import { useLocation } from "react-router-dom";
 
 const MenuList = [
   {
@@ -27,7 +28,8 @@ const NavigationBar = () => {
   const { openConfirmModal } = useConfirmModalStore();
   const { isLogin, logout, userName } = useAuthStore();
   const theme = useTheme();
-
+  const { pathname } = useLocation();
+  console.log(pathname);
   // const handleLogin = () => {
   //   console.log("emf");
   //   openConfirmModal({ message: "되니?" }).then(
@@ -45,7 +47,7 @@ const NavigationBar = () => {
   return (
     <nav className="">
       <ul className="flex items-center gap-4 md:gap-7">
-        {isLogin && (
+        {pathname === "/search" && (
           <Box
             sx={{
               width: 800,

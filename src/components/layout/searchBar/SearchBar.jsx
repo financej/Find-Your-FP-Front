@@ -2,8 +2,10 @@ import { useState } from "react";
 import { useDaumPostcodePopup } from "react-daum-postcode";
 import SearchButton from "./SearchButton";
 import { putAddressApi } from "../../../api/address";
+import { useNavigate } from "react-router-dom";
 
 export default function SearchBar() {
+  const navigate = useNavigate();
   const [address, setAddress] = useState();
   const open = useDaumPostcodePopup();
 
@@ -24,6 +26,7 @@ export default function SearchBar() {
 
     setAddress(data.jibunAddress.split("동")[0] + "동");
     await putAddressApi(data.jibunAddress.split("동")[0] + "동");
+    navigate("/planner");
   };
 
   const handleClick = () => {

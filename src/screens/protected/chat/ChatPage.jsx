@@ -9,17 +9,18 @@ import {
   sendSocketMessage,
 } from "../../../api/socketio";
 import { useEffect } from "react";
+import { io } from "socket.io-client";
 
 export default function ChatPage() {
   // const socket = io(import.meta.env.VITE_SOKET_URL);
 
-  useEffect(() => {
-    initSocketConnection();
+  // useEffect(() => {
+  //   initSocketConnection();
 
-    return () => {
-      disconnectSocket();
-    };
-  }, []);
+  //   return () => {
+  //     disconnectSocket();
+  //   };
+  // }, []);
 
   const [msg, setMsg] = useState(_mock.reverse());
   const [value, setValue] = useState();
@@ -38,7 +39,7 @@ export default function ChatPage() {
       },
       ...prev,
     ]);
-    await sendSocketMessage(value);
+    await sendSocketMessage(1, 1, value);
     setValue("");
   }, [value]);
 

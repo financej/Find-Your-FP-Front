@@ -13,26 +13,30 @@ function AuthPage() {
     try {
       const res = await loginApi(code);
 
-      const accessToken = JSON.stringify(res.accessToken)
-      const userName = JSON.stringify(res.userName)
+      const accessToken = JSON.stringify(res.accessToken);
+      const userName = JSON.stringify(res.userName);
+      const userId = JSON.stringify(res.userId);
 
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("userName", userName);
+      localStorage.setItem("userId", userId);
 
-      login(accessToken, userName);
+      login(accessToken, userName, userId);
 
-      navigate("/");
+      navigate("/search");
     } catch (error) {
-      openConfirmModal({message: '로그인 중 문제가 발생했습니다.\n다시 로그인 해주세요.'}).then(check => check && navigate('/'))
+      openConfirmModal({
+        message: "로그인 중 문제가 발생했습니다.\n다시 로그인 해주세요.",
+      }).then((check) => check && navigate("/"));
     }
   };
 
   useLayoutEffect(() => {
     const getUser = async () => {
       await getAccessToken();
-    }
-    getUser()
-  }, [])
+    };
+    getUser();
+  }, []);
 
   return <></>;
 }
