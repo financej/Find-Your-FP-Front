@@ -16,6 +16,10 @@ steps:
   displayName: 'Install Node.js'
 - checkout: self
   submodules: true
+- script: |
+    npm install
+    npm run build
+  displayName: 'npm install and build'
 - task: AzureStaticWebApp@0
   inputs:
     app_location: '/dist'
@@ -26,8 +30,3 @@ steps:
     # VITE_API=http://localhost:8080/api/auth/
     # VITE_KAKAO_API=57af93f1597e793699fde66442b691f3
     # VITE_REDIRECT_URL=http://localhost:5173/api/auth
-
-- script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
