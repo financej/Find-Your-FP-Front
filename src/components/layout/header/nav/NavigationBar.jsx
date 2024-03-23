@@ -61,7 +61,7 @@ const NavigationBar = () => {
     <nav className="">
       <ul className="flex items-center gap-4 md:gap-7">
         <StyledDiv>
-          <CustomTypography onClick={() => navigate('/')}>
+          <CustomTypography onClick={() => navigate('/search')}>
             보험설계사 찾기
           </CustomTypography>
         </StyledDiv>

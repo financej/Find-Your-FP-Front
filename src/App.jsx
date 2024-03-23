@@ -8,7 +8,7 @@ import AuthPage from "./screens/unprotected/auth/AuthPage";
 import Form from "./screens/unprotected/form/Form";
 import { theme } from "./style/theme";
 import ChatPage from "./screens/protected/chat/ChatPage";
-import HomePage from "./screens/unprotected/Home/HomePage";
+import HomePage from "./screens/protected/search/HomePage.jsx";
 
 //fixme 가시성 개선?
 const router = createBrowserRouter([
@@ -23,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <LoginPage />,
+      },
+      {
+        path: "/search",
+        element: <HomePage />,
       },
       {
         path: "/api/auth",
