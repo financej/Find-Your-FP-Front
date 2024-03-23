@@ -9,7 +9,7 @@ import Form from "./screens/unprotected/form/Form";
 import { theme } from "./style/theme";
 import ChatPage from "./screens/protected/chat/ChatPage";
 import ChatRoom from "./screens/protected/chat/ChatTempPage";
-import HomePage from "./screens/unprotected/Home/HomePage";
+import HomePage from "./screens/protected/search/HomePage";
 import PlannerPage from "./screens/protected/planner/PlannerPage";
 import SearchPage from "./screens/protected/search/SearchPage";
 
